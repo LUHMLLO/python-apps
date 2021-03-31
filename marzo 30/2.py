@@ -30,17 +30,17 @@ else:
 
 # calcular la moda
 repetir = 0
-for i in lista_de_50_elementos:
-    aparece = lista_de_50_elementos.count(i)
+for num in lista_de_50_elementos:
+    aparece = lista_de_50_elementos.count(num)
     if aparece > repetir:
         repetir = aparece
 
 moda = []
-for i in lista_de_50_elementos:
-    aparece = lista_de_50_elementos.count(i)
-    if aparece == repetir and i not in moda:
-        moda.append(i)
-#
+for num in lista_de_50_elementos:
+    aparece = lista_de_50_elementos.count(num)
+    if aparece == repetir and num not in moda:
+        moda.append(num)
+
 
 print(" ")
 print(sorted(lista_de_50_elementos))
