@@ -50,7 +50,7 @@ def makeBoard(tablero, filas, columnas, porcentaje):
 
 tablero = []
 filas, columnas = 10, 10
-porcentaje = 25
+porcentaje = int(input("Digite la cantidad de bombas que desea invocar : "))
 
 print("")
 makeBoard(tablero, filas + 2, columnas + 2, porcentaje)
