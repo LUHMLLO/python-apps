@@ -7,46 +7,51 @@
 from random import randint
 
 
-def printBoard(boards, row, column):
-    for r in range(1, row - 1):
-        for c in range(1, column - 1):
-            print(boards[r][c], end=" ")
+def printBoard(tablero, filas, columnas):
+    for fila in range(1, filas - 1):
+        for columna in range(1, columnas - 1):
+            print(tablero[fila][columna], end=" ")
         print()
 
 
-def putBomb(boards, row, column, percentage):
-    qtyB = 0
-    while qtyB != percentage:
-        for r in range(1, row - 1):
-            for c in range(1, column - 1):
+def putBomb(tablero, filas, columnas, porcentaje):
+    cantidad_de_bombas = 0
+    while cantidad_de_bombas != porcentaje:
+        for fila in range(1, filas - 1):
+            for columna in range(1, columnas - 1):
                 ran = randint(1, 100)
-                if ran <= percentage and boards[r][c] != "B":
-                    boards[r][c] = "B"
-                    qtyB += 1
-                if qtyB == percentage:
+                if ran <= porcentaje and tablero[fila][columna] != "B":
+                    tablero[fila][columna] = "B"
+                    cantidad_de_bombas += 1
+                if cantidad_de_bombas == porcentaje:
                     break
-            if qtyB == percentage:
+            if cantidad_de_bombas == porcentaje:
                 break
 
-    for r in range(1, row - 1):
-        for c in range(1, column - 1):
-            valor = boards[r][c]
+    for fila in range(1, filas - 1):
+        for columna in range(1, columnas - 1):
+            valor = tablero[fila][columna]
             if valor == "B":
-                for i in range(r-1, r+2):
-                    for j in range(c-1, c+2):
-                        inc = boards[i][j]
+                for i in range(fila-1, fila+2):
+                    for j in range(columna-1, columna+2):
+                        inc = tablero[i][j]
                         if inc != "B":
-                            boards[i][j] = inc + 1
+                            tablero[i][j] = inc + 1
 
-    printBoard(boards, row, column)
-
-
-def makeBoard(boards, row, column, percentage):
-    for i in range(row):
-        boards.append([0 for j in range(column)])
-
-    putBomb(boards, row, column, percentage)
+    printBoard(tablero, filas, columnas)
 
 
-boards, row, column, percentage = [], 10, 10, 25
-makeBoard(boards, row + 2, column + 2, percentage)
+def makeBoard(tablero, filas, columnas, porcentaje):
+    for i in range(filas):
+        tablero.append([0 for j in range(columnas)])
+
+    putBomb(tablero, filas, columnas, porcentaje)
+
+
+tablero = []
+filas, columnas = 10, 10
+porcentaje = 25
+
+print("")
+makeBoard(tablero, filas + 2, columnas + 2, porcentaje)
+print("")

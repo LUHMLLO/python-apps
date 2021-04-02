@@ -21,7 +21,6 @@ for fila_en_tablero in range(10):
        tablero.append("*")
 
 #zonas seguras
-
 for i in range(random.randint(1, 30)):
     tablero[random.randrange(0,len(tablero))]="0"
 
