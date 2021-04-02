@@ -12,6 +12,23 @@
 # "+" las demas cuadriculas
 
 
+#import numpy as np
+
+# tablero = np.array([
+#    ["+", "*", "*", "*", "+", "+", "+", "+"],
+#    ["*", "*", "R", "*", "*", "*", "*", "*"],
+#    ["+", "*", "*", "*", "+", "+", "+", "+"],
+#    ["+", "*", "*", "+", "*", "+", "+", "+"],
+#    ["*", "+", "*", "+", "+", "*", "+", "+"],
+#    ["+", "+", "*", "+", "+", "+", "*", "+"],
+#    ["+", "+", "*", "+", "+", "+", "+", "*"],
+#    ["+", "+", "*", "+", "+", "+", "+", "+"],
+# ])
+
+# for fila in tablero:
+#    print(*fila, sep = " ")
+
+
 boards = []
 
 
@@ -40,7 +57,8 @@ def solve(x, y):
 
 
 print("Digite la posicion de la reina (x,y): ")
-x, y = 8, 8
+x = int(input("X : "))
+y = int(input("Y : "))
 if x < 1 or x > 8 or y < 1 or y > 8:
     print("Coordenada incorrecta")
 else:
