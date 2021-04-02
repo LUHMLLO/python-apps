@@ -4,38 +4,49 @@
 # M = minas
 # el usuario debe introducir el numero de minas que desea invocar
 
-import numpy as np
-import random
-import textwrap
+from random import randint
 
 
-tablero = []
+def printBoard(boards, row, column):
+    for r in range(1, row - 1):
+        for c in range(1, column - 1):
+            print(boards[r][c], end=" ")
+        print()
 
-print('\n')
-numero_de_minas = int(input("digite el numero de minas que desea invocar : "))
-print(" ")
 
-# generar tablero
-for fila_en_tablero in range(10):
-    for columna_en_fila in range(10):
-       tablero.append("*")
+def putBomb(boards, row, column, percentage):
+    qtyB = 0
+    while qtyB != percentage:
+        for r in range(1, row - 1):
+            for c in range(1, column - 1):
+                ran = randint(1, 100)
+                if ran <= percentage and boards[r][c] != "B":
+                    boards[r][c] = "B"
+                    qtyB += 1
+                if qtyB == percentage:
+                    break
+            if qtyB == percentage:
+                break
 
-#zonas seguras
+    for r in range(1, row - 1):
+        for c in range(1, column - 1):
+            valor = boards[r][c]
+            if valor == "B":
+                for i in range(r-1, r+2):
+                    for j in range(c-1, c+2):
+                        inc = boards[i][j]
+                        if inc != "B":
+                            boards[i][j] = inc + 1
 
-for i in range(random.randint(1, 30)):
-    tablero[random.randrange(0,len(tablero))]="0"
+    printBoard(boards, row, column)
 
-#minas
-for i in range(numero_de_minas+1):
-    tablero[random.randrange(0,len(tablero))]="M"
 
-#bomba
-tablero[random.randrange(0,len(tablero))]="B"
+def makeBoard(boards, row, column, percentage):
+    for i in range(row):
+        boards.append([0 for j in range(column)])
 
-#remover parentesis y comas de la lista
-tablero_lineal = ''.join(map(str, tablero))
-print(textwrap.fill(tablero_lineal, 10))
-print("")
-print("Cantidad de bombas : "+str(tablero_lineal.count("B")))
-print("Cantidad de minas : "+str(tablero_lineal.count("M")))
-print("Cantidad de zonas seguras : "+str(tablero_lineal.count("0")))
+    putBomb(boards, row, column, percentage)
+
+
+boards, row, column, percentage = [], 10, 10, 25
+makeBoard(boards, row + 2, column + 2, percentage)

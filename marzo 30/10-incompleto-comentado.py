@@ -1,49 +1,41 @@
-#hacer tablero de busca minas 10x10 donde:
-#B es la bomba
-#0 las posiciones donde no hay bombas cerca
-#especificar el numero de bombas al rededor de cada espacio ???????????
-#el usuario debe introducir el numero de minas que desea invocar
+# hacer tablero de busca minas 10x10 donde:
+# B = bomba
+# 0 = zonas seguras
+# M = minas
+# el usuario debe introducir el numero de minas que desea invocar
 
-#import numpy as np
-#import random
-
-#tablero = []
-#fila = []
-#columna = []
-
-#espacio_con_bomba = []
+import numpy as np
+import random
+import textwrap
 
 
-#print('\n')
-#numero_de_minas = int(input("digite el numero de minas que desea invocar : "))
-#print(" ")
+tablero = []
 
+print('\n')
+numero_de_minas = int(input("digite el numero de minas que desea invocar : "))
+print(" ")
 
-#generar tablero
-#for fila_en_tablero in range(1, 11):
-#    for columna_en_fila in range(1, 11):
-#        columna.append("*")
-#    fila.append(columna)
-#    tablero.append(fila)
-#    columna = []
-#    fila = []
+# generar tablero
+for fila_en_tablero in range(10):
+    for columna_en_fila in range(10):
+       tablero.append("*")
 
+#zonas seguras
 
-#posiciones sin bombas
-#for filas in tablero:
-#    for columnas in filas:
-#        columnas[random.randrange(0,len(columnas))]="0"
+for i in range(random.randint(1, 30)):
+    tablero[random.randrange(0,len(tablero))]="0"
 
-#posiciones con minas
-#for filas in tablero:
-#    for columnas in filas:
-#        columnas[random.randrange(0,numero_de_minas)]="M"
+#minas
+for i in range(numero_de_minas+1):
+    tablero[random.randrange(0,len(tablero))]="M"
 
-    
+#bomba
+tablero[random.randrange(0,len(tablero))]="B"
 
-#imprimir tablero con las modificaciones realizadas
-#for filas in tablero:
-#    for columnas in filas:
-#        print(*columnas, sep = " ")
-
-
+#remover parentesis y comas de la lista
+tablero_lineal = ''.join(map(str, tablero))
+print(textwrap.fill(tablero_lineal, 10))
+print("")
+print("Cantidad de bombas : "+str(tablero_lineal.count("B")))
+print("Cantidad de minas : "+str(tablero_lineal.count("M")))
+print("Cantidad de zonas seguras : "+str(tablero_lineal.count("0")))
