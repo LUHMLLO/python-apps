@@ -36,9 +36,15 @@ def id_random():
 
 
 for num in range(1, 40):
+    d = dia_random()
+    m = mes_random()
+    y = año_random()
     data = {
         "id": id_random(),
-        "fecha": str(dia_random()) + "-" + str(mes_random()) + "-" + str(año_random())
+        "dia": d,
+        "mes": m,
+        "año": y,
+        "fecha": str(d) + "-" + str(m) + "-" + str(y)
     }
     basededatos.append(data)
 
