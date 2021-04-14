@@ -1,3 +1,7 @@
+# Name: Franklin Junior Blanco Aquino
+# ID: 1014-1034
+# Exercise : 3
+
 # organizar por fechas de mayor a menor
 # una lista de 40 elementos
 
@@ -16,7 +20,7 @@ basededatos = []
 
 
 def dia_random():
-    num = random.randint(1, 30)
+    num = random.randint(1, 28)
     return num
 
 

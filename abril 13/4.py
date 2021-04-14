@@ -1,3 +1,7 @@
+# Name: Franklin Junior Blanco Aquino
+# ID: 1014-1034
+# Exercise : 4
+
 # dada la lista ordenada de mayor a menor del ejercicio anterior
 # obtener el numero de contratos realizados en una determinada fecha
 

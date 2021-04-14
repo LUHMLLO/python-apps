@@ -1,3 +1,7 @@
+# Name: Franklin Junior Blanco Aquino
+# ID: 1014-1034
+# Exercise : 1
+
 # crear un algoritmo que
 # almacene de 30 numeros random sin repetir del 1 al 50
 # seleccionar metodos de busqueda: lineal o binaria

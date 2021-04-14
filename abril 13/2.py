@@ -1,3 +1,7 @@
+# Name: Franklin Junior Blanco Aquino
+# ID: 1014-1034
+# Exercise : 2
+
 # crear un algoritmo que
 # almacene de 60 numeros random sin repetir del 1 al 100
 
